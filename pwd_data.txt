@@ -1,0 +1,258 @@
+
+![logo.jpg](attachment:135a46d4-f4df-4596-b366-4c34cf9910b3.jpg)
+
+Programming with Data Assignment
+
+GDP, Aging Population, Birth Rate and Happiness Index
+Introduction:
+
+The interconnected relationships between economic indicators, demographic shifts, and the elusive concept of happiness unfold as a compelling narrative. This delves into the complex interplay among Gross Domestic Product (GDP), an aging population, birth rates, and the happiness index. Examining these elements reveals not only the economic pulse of a nation but also its demographic contours and the nuanced hues of contentment within its populace. From the impact of economic prosperity on family planning to the evolving landscape shaped by aging demographics, this exploration seeks to unravel the threads that weave the fabric of a society's well-being.
+
+Gross Domestic Product (GDP)
+
+Gross Domestic Product (GDP) quantifies the financial worth of ultimate goods and services, specifically those acquired by end consumers, manufactured within a country during a specified timeframe, like a quarter or a year. It encompasses the entire output originating within a country's boundaries, encompassing market transactions involving goods and services for sale and nonmarket activities such as government-provided defence or education services.
+
+[GDP]
+World Happiness index
+
+World Happiness Report is a publication released annually by the United Nations Sustainable Development Solutions Network. It ranks countries based on various factors that contribute to happiness and well-being. The World Happiness Index evaluates nations based on their level of happiness.
+
+[Happiness Index]
+Birth rate per woman
+
+This allows us to determine the average birth rate in different regions and compare it to the respective average GDP. By doing so, we can evaluate whether regions with higher or lower GDP demonstrate corresponding differences in birth rates.
+
+Aging population
+
+Elderly includes individuals aged 65 and older. The dependency ratio is calculated by taking the combined sum of both the elderly and youth populations and expressing it as a ratio relative to the total population. More specifically, the elderly dependency rate is defined as the proportion between the elderly population and the working-age population (15-64 years).
+
+[Aging population/Elderly]
+
+Why did I choose this as my Research project:
+I selected this topic because it delves into globally pertinent issues, encompassing economic considerations (GDP), societal welfare (happiness index), and demographic patterns (birth rate and aging population). The inclusion of four datasets is essential, as each alone is insufficient for meaningful data comparison. For example, assessing GDP alone would require the inclusion of an elderly population dataset to determine whether a region with a high GDP also exhibits a lower percentage of elderly inhabitants.
+Aims and objectives:
+My research aims to achieve a holistic understanding of societal well-being by examining the interplay among GDP, happiness, birth rate, and aging population. Examining GDP alone may inadequately capture the overall quality of life, the incorporation of happiness, birth rate, and aging population. My study provides a more comprehensive perspective exploring four factors revealing the relationship between economic prosperity and the contentment of the population, offering insights into the broader societal impact of economic growth.
+
+Additionally, my study incorporates an analysis of demographic trends by examining birth rate and aging population over time. This may yield valuable information for policymakers and researchers, enabling anticipation of challenges related to population structure and facilitating strategic planning for the future. The research extends its reach into policy implications by establishing correlations of  among GDP, happiness, birth rate, and aging population. The insights generated from this analysis can inform policy decisions, guiding governments and organizations to come out with strategies to enhance overall well-being and address demographic challenges.
+
+Install modules if not yet installed
+Importing modules and Ignoring Warnings
+Collection of Data
+
+In the following codes, i used the Web Scripting and Web Scraping method to get relevant data from the website, then load the file into the panda dataframe, following which, I set the Country as the index for better identification and visualisation
+
+Web scripting
+Web scripting is used to create dynamic content that allows for user interaction with a web page. What I have done is to interact with a web service to download and manipulate files.
+
+Here, I utilizes the requests library to send HTTP GET requests, raise_for_status() method that raises an exception for bad responses and download a ZIP or CSV file from a specified URL, extracts a specific file from the ZIP archive (skip if it is CSV file), and handles cases where the file is not found or there are errors. It ensures that a file named "...csv" is available, either through extraction or using the previous file. It includes error handling to address various potential issues like if the link has expired or file is not found.
+
+Web scraping
+Web scraping is an automated method used to extract large amounts of data from websites quickly. It involves fetching the web page and then extracting the required information from it. The process typically includes making a request to a website, downloading the HTML content, and parsing it to extract the relevant data.
+
+First, the code sends an HTTP GET request to the specified URL. Next, the raise_for_status() method is called, which raises an exception for bad responses (e.g., 404 Not Found, 500 Internal Server Error). Then, BeautifulSoup is used to parse the HTML content of the page by searching for a tableid or an anchor (<a>) that contains the string 'CSV' and has an 'href' attribute using the soup.find() method. Then after finding the data through tableid, output the data onto a new csv file.
+Terms of Use of Datasource
+Statistics times:
+Dataset 1
+Access: StatisticsTimes.com is an open platform, and access to the content and resources on our website is freely available to all users. There is no requirement for user registration to navigate through the pages, read articles, or use the available features.
+License and Attribution: When using or sharing content from StatisticsTimes.com, users are required to provide proper attribution to StatisticsTimes. This includes, but is not limited to, citing the source with a link back to the original article or page.
+
+The world bank:
+Dataset 2, Dataset 3, Dataset 4
+Access: It encourages public access and creative use of datasets without charge.
+License and Attribution: Datasets are generally under a Creative Commons Attribution 4.0 International License. Users must provide attribution to The World Bank and data providers.(Citation)
+API Usage: Users can use APIs to access datasets, promoting convenient data retrieval.
+Kaggle:
+Dataset 5
+Access: Users grant Kaggle licenses to translate, modify, distribute, and reproduce their submissions for operating the services.
+License and Attribution:
+Different licenses apply to personal, limited audience, and public submissions on Kaggle.(No terms from data provider)
+Users are advised to direct copyright or usage questions to their legal counsel.
+Usage Enquiries in Competitions:
+
+Credibility of Data Sources:
+My datasets are from reputable platforms like The world bank which is considered trustworthy sources for data. It is an international financial institution with a focus on providing reliable economic and social data.For my first and last datasets, they come from Statistics Times and Kaggle, the data collected are mostly fixed. Statistics time for instance, I collect the data regarding continents and country dataset where their Source is from the United Nations Statistics Division, whereas for kaggle, the data i have taken is further taken from the yearly World Happiness Report.
+
+Handling Errors
+Country to continent data:
+I tries to fetch data from a URL and process it into a DataFrame. If there's an issue with the request (like a network problem), it prints an error message. If there's any other unexpected issue during processing, it prints a general error message.
+
+GDP and elderly population Data:
+Downloads data from the World Bank website, extract it, and handle missing files.
+If there's an issue with the request, it prints an error message.
+If the downloaded file is not a valid ZIP file, it prints an error message.
+If a necessary file is missing, it tries to use a previous version, or prints an error if that's missing too.
+If there's any other unexpected issue, it prints a general error message.
+
+Birth rate Data:
+Downloads data from the World Bank, extracts it, and moves it to a specific file.
+If there's any issue during this process, it logs a detailed error message.
+It uses separate functions for downloading, extracting, and moving files for better organization.
+Logs detailed error messages in case of issues.
+
+World Bank Data Download and Processing Script (Happiness Index):
+Downloads a CSV file related to the World Happiness Index from a specific URL.
+If there's an issue with the request, it prints an error message.
+If there's any other unexpected issue, it prints a general error message.
+In summary, these scripts are designed to handle various potential issues during the process of downloading, extracting, and handling data files. Error messages are provided to give feedback on what went wrong, making it easier to diagnose and fix problems.
+Mimicking a real browser
+The code below is to mimic a real browser request using the requests library in Python incase they reject the access. This script sends an HTTP GET request to a specified URL with a user-agent header that imitates the user agent of the Chrome browser.
+Loading (Web scraping) and saving Country to continent data (Dataset 1)
+For dataset 1, i used web scripting as the data I found is a table within the webpage, thus, i webscrape by locating the table with the table id, following which I saved it into a csv file for future use in case the website has gone down, table id or format of website has changed, which would render these code useless. Then, it is saved into a panda dataframe.
+The file I have downloaded includes the countries and continents column which would be needed for me to combine the dataframe so that we would be able to compare the data accourding to the regions
+Loading (Web scraping) and saving GDP and elderly population data (Dataset 2 and 3)
+Here for dataset 2 and 3, I used web scraping to locate the actual download link which have anchor (<a>) and the name csv, the reason would be that, after having this code, we would be able to just run the code and get the zip file instead of going to the actual website and downloading it all the time. Here I set the handle missing file function as the website would update the data frequently, rendering it to unable to locate the file within the zip file, thus I set it so it would refer to the previous file when running the code if the file is not found.
+The file downloaded below would be for gdp and elderly data with the countries and years. I would use this to compare with all the other data where we would be able to see demographic trends.
+Loading (Web scripting) and saving birth rate data (Dataset 4)
+Here I use web scripting with just the download link to download the zip file directly using the get method, this method is also better than going to the website and downloading it when needed. I choosed this method for dataset 4 as I am able to locate the actual download link to download directly instead of using the scraping method
+The file downloaded below would be for birth rate data with the countries and years. I would use this to compare with all the other data where we would be able to see demographic trends.
+Loading (Web scripting) and saving happiness index data (Dataset 5)
+Here I also used web scripting method for dataset 5 as I managed to located the download link, however, the link would expire after sometimes, thus, this would show how my error handling works and carry on to reading the previous downloaded file.
+The file downloaded here is for happiness index where we would be able to compare and analysis on whether a region with high gdp, elderly population, high birth rate would have higher or lower happiness index
+
+After having all the csv file, I would read the respective data into panda dataframe with the index as country name and drop the years before 2013 as there would be too much data which would not be necessary.
+
+Data Cleansing
+Here I firstly take out the the Country and region column for the continent_df, then I save it to a new dataframe named continent_df_cleansed. Following which, I set the Country as index and display the data
+For the gdp, elderly population and birth rate data, I reshape them according to their respective Country, Years and Value
+Following which, I seperated and grouped them according to their countries and years and the mean value of each country and year. For some of the years there are shortage of 2014, 2022 and 2023.
+Sorting by countries and year would allow us to remove all those NaN data where certain data are not available and making the estimation possible.
+Sorting by countries
+By grouping it with just the country and finding the mean of the value, it would allow us to standardise by sorting the data by country. This makes it easier to compare and analyze economic indicators (such as GDP) across different countries.
+Sorting by years
+Sorting by years puts the data in chronological order, which is often natural and makes it easier to interpret the temporal progression of events or trends. Also, sorting by years is essential for meaningful analysis, it involves examining and understanding patterns, trends, and fluctuations over time.
+This is the part where we have a shortage of year 2023 as it has not fully ended and without data being fully collected, thus, I used the linear regression method to estimate the gdp and elderly population value for year 2023
+Here, I have a shortage of 2022 and 2023 value, then I again used the linear regression method to estimate the birth rate value for year 2022 and 2023.
+This is the part where we don't have the happiness report data for year 2014, thus, I find the mean of year 2013 and 2015 using the lamba function and add the value into the panda series.
+
+Combining/merging datas
+This is the part where I combine the different data together for easy comparision when ploting the data. For the first part, i would merge two dataframe so they would be side by side. Next, making use of the continent data, we change the country into their respective continents. Reason for this would be there are just too much countries to plot so we would not be able to visualise the data clearly. Next we find the mean value for the respective regions, thus making it easier for us to compare data via the plots. Lastly would be the comparsion by years where I merge them side by side, this allows for us to visualy see the trend over the years and comparing the different data together.
+Justification for normailization:
+A country, region and year attribute typically serves as a primary key in many datasets. Each country, region and year are unique and identifiable, providing a solid basis for the primary key in tables related to global or national data. In 3NF (third normalization), a primary key uniquely identifies each record, and the "Country", "Region" and "Year" attribute fulfills this criterion effectively.
+
+In 3NF, the goal is to eliminate transitive dependencies and minimize data redundancy. A "Country", "Region" and "Year" attribute often acts as a primary key, ensuring that data related to a specific country is stored without unnecessary duplication. This minimizes redundancy, making the data model more efficient and reducing the likelihood of inconsistencies.
+
+Including "Country", "Region" and "Year" as a primary key enhances the overall clarity and understanding of the database schema. It reflects the natural structure of the data and aligns with the intuitive way users think about region-specific information. This makes the database design more user-friendly and contributes to its overall comprehensibility
+Combining/merging GDP and elderly pop
+Countries often formulate policies considering both economic and demographic aspects. Merging GDP and aging population at the Region and year levels allows for direct applicability to policymaking. Governments can use these insights to develop strategies addressing the challenges and opportunities posed by economic development and demographic changes within their specific national context.
+Combining/merging GDP and birth rate
+
+Merging GDP (Gross Domestic Product) and birth rate data by year and region can provide valuable insights into the economic and demographic dynamics of different areas over time. Examining the relationship between GDP and birth rate can help identify patterns and correlations. For instance, higher GDP per capita may be associated with lower birth rates, as region with greater economic development often experience shifts in family planning and lifestyle choices.
+Combining/merging GDP and happiness index
+
+This can provide the public with a holistic understanding of the well-being and quality of life in their respective areas. As GDP alone may not capture the overall well-being of a population. The happiness index, which includes subjective measures of life satisfaction and happiness, offers a more comprehensive perspective on the quality of life. Policymakers can use the merged data to make more informed decisions. Understanding the relationship between GDP and happiness helps in crafting policies that not only focus on economic growth but also prioritize factors contributing to overall life satisfaction.
+Combining/merging Elderly pop and happiness index
+
+Doing this can offer valuable insights into the well-being and life satisfaction of general public and whether a high percentage of elderly population would affect the happiness index of that region. This would allow the policymakers to study and decide what they should do to if the region with higher elderly population have low happiness index.
+Combining/merging Birth rate and happiness index
+
+This provide valuable insights into the relationship between demographic trends and the subjective well-being of populations. Examining the correlation between birth rates and happiness index allows for an understanding of how societal values, particularly those related to family and child-rearing, influence the overall happiness of a population. It also shed light on demographic transitions. As birth rates changes, it is crucial to understand how these transitions affects the happiness levels in regions.
+Combining/merging Elderly population and birth
+
+This offer valuable insights into the demographic structure and population dynamics of different areas and time. It helps identify patterns of population aging and assesses the impact of birth rates on the composition of age groups over time. Analyzing their correlation provides insights into how changes in birth rates influence population aging. This information is crucial for anticipating future challenges related to healthcare, social services, and workforce dynamics.
+Sorting the top 10 Regions with high mean happiness index
+From this data, we can tell that Europe have the most number of Countries within the top 10 that have high Happiness index. This shows that other regions should try to follow Europe and keep their people happy.
+ Double Check for NaN data
+
+Plot
+My choice of visualizing data with "Region" or "Year" on the x-axis and having two (2) y-axes, with Variable X on the left and Variable Y on the right, is a well-justified approach for at least 4 reasons:
+
+Correlation Assessment: Placing data 1 and data 2 on separate y-axes allows for an immediate visual assessment of the correlation between these two key indicators. This side-by-side comparison enables quick insights, providing a holistic view of the relationship between these variables.
+
+Dual Scaling for Varied Magnitudes typically have significantly different magnitudes. Using dual axes accommodates these variations, preventing one variable from overshadowing the other. It ensures that the two data trends are clearly visible and interpretable on the same chart, despite their potentially vast differences in scale.
+
+Enhanced Interpretability: Placing the data on separate axes enhances the interpretability of the visualization. It becomes easier for viewers to analyze trends, and draw conclusions about the relationship between them. This clarity is particularly valuable when communicating complex socioeconomic patterns to a diverse audience.
+
+Efficient Use of Space: By utilizing a dual-axis chart, the space available is used efficiently on the visualization. This layout maximizes the information conveyed in a single view, reducing the need for multiple charts and streamlining the communication of insights.
+Elderly population and GDP plot (twinX plot)
+From the above dual axis plot, I am able to tell that a region with low GDP tends to have lower elderly percentage, this is true for regions like Afria, Oceania, North and South America. The reason could be due to the fact that regions with lower GDP may experience challenges in providing adequate healthcare, leading to lower life expectancy. As a result, the elderly population may be relatively smaller compared to regions with higher GDP where healthcare infrastructure and access are more robust. However, there are anormalies like Asia which have the highest mean GDP, but their elderly population percentage is not as high as Europe, North and South America. An assumption would be that, there are Countries in Asia like India which have large amount of birth rate, which reduce the elderly percentage of the whole Asia region. 
+From the dual-axis chart above, it is evident that both global GDP and the percentage of elderly individuals have shown a consistent upward trend over the years, with only slight fluctuations in GDP. This indicates a continuous increase in both economic output and the proportion of elderly people globally. This upward trajectory may be attributed to advancements in healthcare, medical technology, and enhanced access to medical services worldwide, resulting in a notable improvement in life expectancy. Rising GDP could lead to improved living standards which further contributes to enhanced nutrition, education, and overall living conditions, collectively promoting better health outcomes and an increase in life expectancy.
+Birth rate per woman and GDP plot (twinX plot)
+Based on the plot above, it's apparent that regions with lower GDP generally exhibit higher birth rates. However, there is an anomaly observed in North and South America, where despite having a slightly lower GDP compared to Asia and Europe, the birth rate per woman is relatively lower than that of Asia. Regions with lower GDP often undergo economic and social development at a different pace compared to higher GDP regions. In less developed regions, there may be limited access to education, healthcare, and family planning services, leading to higher birth rates.
+The plot indicates a decline in the birth rate per woman concurrent with an increase in the yearly GDP. This suggests an inverse relationship between birth rates and economic growth, where as GDP rises, the birth rate per woman tends to decrease. Economic development often correlates with improvements in gender equality and the empowerment of women. When women have more opportunities for education and employment, they may choose to delay childbirth and have fewer children, contributing to a decline in birth rates. Moreover, rising GDP is often associated with an increase in the cost of living. Raising children becomes more expensive in economically developed regions, influencing individuals to have smaller families and allocate resources more efficiently. Thus, resulting in the decline in birth rate per woman.
+GDP and happiness index plot (twinX plot)
+The chart above illustrates the correlation between GDP and the happiness index. It indicates that Africa exhibits both a low GDP (estimated below 2.5 quadrillion USD) and a happiness index below 4.5. This can be attributed to economic challenges in many African countries, including limited industrialization, dependence on agriculture, and susceptibility to external shocks. These factors contribute to a lower GDP compared to more developed regions. Additionally, elevated levels of poverty and income inequality prevail in numerous African nations, leading to a substantial portion of the population struggling to meet basic needs, thereby impacting overall happiness levels.
+
+In contrast, Oceania demonstrates a low GDP but boasts the highest happiness index among all regions. This phenomenon may be attributed to the region's renowned natural landscapes and environments. The quality of life, accessibility to natural resources, and a strong connection to nature play pivotal roles in enhancing happiness. Residents in Oceania often place significant value on their surroundings, deriving a sense of well-being from the remarkable natural beauty around them.
+
+Moving on to Asia, despite having a high GDP, the happiness index is recorded at 5.5, indicating that a robust economic performance does not necessarily equate to a high happiness index. In North and South America, where the GDP is not as high as Asia and Europe, the average happiness index exceeds 6.0. This observation underscores the idea that a slightly lower GDP does not necessarily imply diminished happiness levels among the population in these regions.
+The illustrated graph indicates a consistent annual growth in GDP, punctuated by occasional minor fluctuations. In contrast, the happiness index undergoes a notable decrease from 2013 to 2017, followed by a subsequent upward trajectory starting in the latter part of 2017. Possible factors contributing to the decline (2013 to 2017) encompass economic challenges, including recessions, job losses, and financial crises, which often result in an overall decrease in well-being. Political instability, conflicts, and uncertain governance are additional factors that can adversely impact happiness by generating anxiety and diminishing individuals' sense of security and contentment. The occurrence of natural disasters or environmental challenges during this period may have further influenced happiness by causing loss, displacement, and economic hardships.
+
+Conversely, the upswing in the happiness index might be attributed to periods of enhanced political stability, improved governance, or the resolution of conflicts. Such positive developments would likely boost people's confidence and contribute to a more optimistic outlook, thereby positively influencing happiness levels. Notably, during the period from 2019 to 2022, coinciding with the COVID-19 pandemic, the global happiness index experienced an increase. This could be attributed to the shift to remote work during the pandemic, potentially reducing stress associated with traditional office environments.
+Elderly population and happiness index plot
+From the plot above, I can tell that, as the elderly population is high, the region's happiness index tends to be relatively high too, the only anormaly is Europe, which have a high elderly population but a happiness index of 6.2. While Europe may have a high percentage of elderly individuals, the quality of life for this them may vary. Factors such as access to healthcare, social support, and overall well-being among the elderly could influence the happiness index.
+The connection between the elderly population and the happiness index is not distinctly evident from the presented plot. The happiness index appears to be influenced by various factors beyond the proportion of elderly individuals, suggesting a potential minor relationship. In summary, the acknowledgment of the intricate and potentially modest correlation between the elderly population and the happiness index aligns with the complex nature of well-being. This underscores the significance of taking into account a comprehensive range of factors when examining happiness trends across different regions and throughout time.
+Birth rate per woman and happiness index plot (twinX plot)
+From the presented graph, the apparent relationship between birth rate per woman and the happiness index is not clearly discernible. Notably, in regions like Europe, North and South America, and Oceania, the birth rates range from 1.5 to 2.5 per woman. Interestingly, despite these lower birth rates, these regions consistently exhibit higher happiness indices, all surpassing 6.0, with Oceania leading with an index exceeding 7.0. This suggests a potential association between having fewer children and reporting higher happiness, although it's crucial to acknowledge that happiness is influenced by a multitude of factors, and lower birth rates may be just one contributing factor among many.
+As evident from the depicted plot, there is a declining trend in the birth rate per woman over the years. Concurrently, the happiness index shows a decrease from 2013 to 2017 and an subsequent increase from the latter part of 2017 to 2023. This also shows that happiness index are affected by multiple factors instead of just one.
+Elderly population and Birth rate per woman plot
+From the depicted graph, it is evident that regions characterized by a higher proportion of elderly individuals tend to exhibit lower birth rates. Europe, with an elderly population exceeding 17.5%, demonstrates a birth rate of approximately 1.5 per woman. Similarly, North America and South America, both having elderly populations surpassing 7.5%, exhibit birth rates around 2.0 per woman. This trend may be attributed to evolving cultural preferences related to family size and the evolving role of women in society, contributing to a preference for smaller families. This implies a potential inverse correlation between the percentage of elderly individuals and birth rates in these regions.
+Examining the plot above reveals a clear and ongoing pattern of a rising elderly population alongside a concurrent decrease in birth rates throughout the years. Persistent low birth rates over an extended period result in a reduced proportion of younger individuals in the population, ultimately leading to an aging demographic structure. In essence, the diminishing birth rates, influenced by diverse socio-economic and cultural factors, play a role in shaping an older population structure, bringing significant implications for societal frameworks, economic systems, and healthcare services.
+
+Subplot
+Subplots allow for a side-by-side comparison, making it easier to identify patterns and trends. By presenting the data in this manner, we can explore the dynamics between these variables across different time periods. Here I decided to create a subplot to have the visualisation of all four dataset(GDP, Elderly Population, Birth rate, Happiness index) with respect by year. With this we would be able to visualise and try to gain a comprehensive understanding of their relationships.
+We can discern from the provided data that GDP, the elderly population, and the happiness index have all experienced upward trends with some variations, while the birth rate has consistently decreased from 2013 to 2023. This indicates a positive correlation among GDP, the elderly population, and the happiness index, whereas the birth rate demonstrates an inverse relationship throughout the observed years.
+
+Wordcloud
+
+Conclusion
+In summary, the analysis of the dual-axis plots reveals several noteworthy trends and relationships between GDP, the percentage of elderly individuals, birth rates, and the happiness index. Key observations include the positive correlation among GDP, the elderly population, and the happiness index, while birth rates demonstrate an inverse relationship over the observed years. Anomalies, such as Europe's high elderly population but a moderate happiness index, are acknowledged, emphasizing the importance of considering various factors like healthcare access and overall well-being. The complex nature of happiness trends is highlighted, and the impact of external events, such as the COVID-19 pandemic, on the happiness index is considered. Overall, the analysis provides a nuanced understanding of the interconnected dynamics shaping socio-economic and demographic trends globally.
+
+References
+Gross Domestic Product (GDP)
+
+International Monetary Fund. (n.d.). Gross Domestic Product (GDP). Retrieved 23 Dec 2023, from
+https://www.imf.org/en/Publications/fandd/issues/Series/Back-to-Basics/gross-domestic-product-GDP
+
+
+World Happiness Index
+
+Byjusexamprep. World Happiness Index.
+Retrieved 23 Dec 2023, from
+https://byjusexamprep.com/upsc-exam/world-happiness-indextoc-1
+
+Aging population/Elderly
+
+OECD (Organisation for Economic Co-operation and Development). Elderly Population Data. 
+Retrieved 23 Dec 2023, from
+https://data.oecd.org/pop/elderly-population.htm:~:text=The%20elderly%20population%20is%20defined,ratio%20of%20the%20total%20population
+
+Statistics Times Terms and Conditions
+
+Statistics Times. Terms and conditions. Retrieved 23 Dec 2023, from
+https://statisticstimes.com/privacy.php
+
+Kaggle Terms and Conditions
+
+Statistics Times. Terms and conditions. Retrieved 23 Dec 2023, from
+https://www.kaggle.com/terms
+
+
+The World Bank Terms and Conditions
+
+The World Bank. Terms and conditions. Retrieved 23 Dec 2023, from
+https://data.worldbank.org/summary-terms-of-use
+
+Countries by Continents (Dataset 1)
+
+Statistics Times. Terms and conditions. Retrieved 23 Dec 2023, from
+https://statisticstimes.com/geography/countries-by-continents.php
+
+GDP Data (Dataset 2)
+
+The World Bank. GDP (current US$). Retrieved 23 Dec 2023, from
+https://data.worldbank.org/indicator/NY.GDP.MKTP.CD
+
+Elderly Data (Dataset 3)
+
+The World Bank. Population ages 65 and above (Percentage of total population). Retrieved 23 Dec 2023, from
+https://data.worldbank.org/indicator/SP.POP.65UP.TO.ZS
+
+Birth rate (Per woman) (Dataset 4)
+
+The World Bank. Fertility rate, total (births per woman). Retrieved 23 Dec 2023, from
+https://data.worldbank.org/indicator/SP.DYN.TFRT.IN
+
+World Happiness Index (Dataset 5)
+
+Kaggle. World Happiness Index. Retrieved 23 Dec 2023, from
+https://www.kaggle.com/datasets/simonaasm/world-happiness-index-by-reports-2013-2023?select=World+Happiness+Index+by+Reports+2013-2023+with+nulls.csv
